@@ -23,7 +23,7 @@
 - [About the project](#about-the-project)
 - [Install](#install-)
 - [Run](#run-)
-- [Using examples](#using-examples)
+- [Using examples](#using-examples-)
   
 ## About the Project
 
@@ -40,5 +40,5 @@ An application that provides a mock E-Commerce place using an incredible strengt
 2. Go inside `cd GoMarketplace`;
 3. Run `$ yarn` ou `$ npm install` to install all dependencies;
 
-## Rodando o projeto 🔥 
+## Run 🔥 
 1. Rode `$ yarn dev` para iniciar o projeto;
