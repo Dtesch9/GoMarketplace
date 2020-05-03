@@ -5,7 +5,7 @@ import React, {
   useContext,
   useEffect,
 } from 'react';
-
+import produce from 'immer';
 import AsyncStorage from '@react-native-community/async-storage';
 
 interface Product {
@@ -36,29 +36,50 @@ const CartProvider: React.FC = ({ children }) => {
     loadProducts();
   }, []);
 
-  const addToCart = useCallback(
-    async product => {
-      const cartProductIndex = products.findIndex(
-        cartProduct => cartProduct.id === product.id,
-      );
+  const addToCart = useCallback(async product => {
+    setProducts(state =>
+      produce(state, draft => {
+        const cartIndex = draft.findIndex(
+          cartProduct => cartProduct.id === product.id,
+        );
 
-      if (cartProductIndex >= 0) {
-        products[cartProductIndex].quantity += 1;
+        if (cartIndex >= 0) {
+          draft[cartIndex].quantity += 1;
 
-        return;
-      }
+          return;
+        }
 
-      setProducts(state => [...state, product]);
-    },
-    [products],
-  );
+        draft.push(product);
+      }),
+    );
+  }, []);
 
   const increment = useCallback(async id => {
-    // TODO INCREMENTS A PRODUCT QUANTITY IN THE CART
+    setProducts(state =>
+      produce(state, draft => {
+        const cartIndex = draft.findIndex(cartProduct => cartProduct.id === id);
+
+        if (cartIndex >= 0) {
+          draft[cartIndex].quantity += 1;
+        }
+      }),
+    );
   }, []);
 
   const decrement = useCallback(async id => {
-    // TODO DECREMENTS A PRODUCT QUANTITY IN THE CART
+    setProducts(state =>
+      produce(state, draft => {
+        const cartIndex = draft.findIndex(cartProduct => cartProduct.id === id);
+
+        if (cartIndex >= 0) {
+          draft[cartIndex].quantity -= 1;
+        }
+
+        if (draft[cartIndex].quantity < 1) {
+          draft.splice(cartIndex, 1);
+        }
+      }),
+    );
   }, []);
 
   const value = React.useMemo(
