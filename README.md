@@ -41,4 +41,5 @@ An application that provides a mock E-Commerce place using an incredible strengt
 3. Run `$ yarn` ou `$ npm install` to install all dependencies;
 
 ## Run 🔥 
-1. Rode `$ yarn dev` para iniciar o projeto;
+1. Run `yarn mock:server` to initialize the server;
+2. Run `$ yarn dev` to initialize the project;
