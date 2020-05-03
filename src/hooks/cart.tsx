@@ -8,7 +8,7 @@ import React, {
 import produce from 'immer';
 import AsyncStorage from '@react-native-community/async-storage';
 
-interface Product {
+export interface Product {
   id: string;
   title: string;
   image_url: string;
@@ -18,7 +18,7 @@ interface Product {
 
 interface CartContext {
   products: Product[];
-  addToCart(item: Product): void;
+  addToCart(item: Omit<Product, 'quantity'>): void;
   increment(id: string): void;
   decrement(id: string): void;
 }
@@ -30,11 +30,23 @@ const CartProvider: React.FC = ({ children }) => {
 
   useEffect(() => {
     async function loadProducts(): Promise<void> {
-      // TODO LOAD ITEMS FROM ASYNC STORAGE
+      const storagedProducts = await AsyncStorage.getItem('@GoMarket');
+
+      if (storagedProducts) {
+        setProducts(JSON.parse(storagedProducts));
+      }
     }
 
     loadProducts();
   }, []);
+
+  useEffect(() => {
+    async function storageProducts(): Promise<void> {
+      await AsyncStorage.setItem('@GoMarket', JSON.stringify(products));
+    }
+
+    storageProducts();
+  }, [products]);
 
   const addToCart = useCallback(async product => {
     setProducts(state =>
@@ -49,7 +61,7 @@ const CartProvider: React.FC = ({ children }) => {
           return;
         }
 
-        draft.push(product);
+        draft.push({ ...product, quantity: 1 });
       }),
     );
   }, []);
