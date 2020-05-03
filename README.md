@@ -18,21 +18,23 @@
 
 ## References
 
-
 - [Requirements](#requirements-)
 - [About the project](#about-the-project)
 - [Install](#install-)
 - [Run](#run-)
-- [Using examples](#using-examples-)
+- [Usage Example](#usage-example-)
   
 ## About the Project
 
 An application that provides a mock E-Commerce place using an incredible strength of context API.
 
+:warning: **ANDROID ONLY** :warning:
+
 ## Requirements ✋🏻
 
 - [Node.js](https://nodejs.org/en/)
 - [Yarn](https://yarnpkg.com/pt-BR/docs/install)
+- :iphone: Android emulator — [Guid to setup environment](https://docs.rocketseat.dev/ambiente-react-native/android/emulador)
 
 ## Install 🔥
 
@@ -41,5 +43,10 @@ An application that provides a mock E-Commerce place using an incredible strengt
 3. Run `$ yarn` ou `$ npm install` to install all dependencies;
 
 ## Run 🔥 
-1. Run `yarn mock:server` to initialize the server;
-2. Run `$ yarn dev` to initialize the project;
+1. On a Terminal tab run: `yarn mock:server` to initialize the server;
+2. On other Terminal tab run: `yarn start` to run metro bundle
+2. Run `$ yarn android` to initialize the project;
+
+## Usage Example
+![Usage](https://github.com/Dtesch9/GoMarketplace/blob/master/assets/gomarket-usage.gif)
+
