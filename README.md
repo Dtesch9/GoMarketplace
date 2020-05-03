@@ -19,26 +19,26 @@
 ## References
 
 
-- [Referências](#refer%C3%AAncias)
-- [Sobre o projeto](#sobre-o-projeto)
-- [Instalação](#nstala%C3%A7%C3%A3o-)
-- [Rodando o projeto](#rodando-o-projeto-)
-- [Exemplos de uso](#exemplos-de-uso)
+- [Requirements](#requirements)
+- [About the project](#about-the-project)
+- [Install](#install-)
+- [Run](#run-)
+- [Using examples](#using-examples)
   
 ## About the Project
 
 An application that provides a mock E-Commerce place using an incredible strength of context API.
 
-## Requerimentos ✋🏻
+## Requirements ✋🏻
 
 - [Node.js](https://nodejs.org/en/)
 - [Yarn](https://yarnpkg.com/pt-BR/docs/install)
 
-## Instalação 🔥
+## Install 🔥
 
-1. Clone o repositório;
-2. Entre na pasta `cd fastfeet`;
-3. Rode `$ yarn` ou `$ npm install` para instalar as dependências;
+1. Clone this repository;
+2. Go inside `cd GoMarketplace`;
+3. Run `$ yarn` ou `$ npm install` to install all dependencies;
 
 ## Rodando o projeto 🔥 
 1. Rode `$ yarn dev` para iniciar o projeto;
