@@ -22,7 +22,7 @@
 - [About the project](#about-the-project)
 - [Install](#install-)
 - [Run](#run-)
-- [Usage Example](#usage-example-)
+- [Usage Example](#usage-example)
   
 ## About the Project
 
